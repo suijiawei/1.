@@ -1,0 +1,26 @@
+放大镜
+npm i
+npm run dev
+07
+                                    bootstrap               jqury
+事件委托
+
+
+ mongod --dbpath=文件夹  -> 启动mongod数据库
+npm start
+
+mongod --dbpath=C:\Users\asus\Desktop\mdb\bin
+
+5  38
+自己的IP       192.168.70.2831
+
+
+
+
+
+
+
+
+
+
+
