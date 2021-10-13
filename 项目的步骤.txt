@@ -1,0 +1,229 @@
+1. 通过express脚手架 ，搭建初始结构
+    全局安装 npm i -g express-generator
+    cmd -> express 项目的名字 -e (采用ejs)
+        进入到 项目 cmd -> npm install (下载package.json中用到的第三方模块)
+        启动服务  cmd  ->  npm start -> localhost:3000
+
+2. npm start -> node ./bin/www  ->  nodemon ./bin/www  (实时监听代码变化)
+
+3. 配置路由
+
+    // CMS系统页面的url
+
+    http://localhost:3000/admin/login   登录页     GET
+    http://localhost:3000/admin/register   注册页     GET
+    http://localhost:3000/admin/index   后台首页    GET
+
+
+    // 用户的ajax功能的url
+
+    http://localhost:3000/users/login    登录功能     POST
+    http://localhost:3000/users/register    注册功能   POST 
+    http://localhost:3000/users/logout    登出功能     GET
+
+
+4. 编写路由中间件
+
+    /routes/admin.js  :  CMS系统页面的路由系统
+    /routes/users.js  :  用户的ajax功能的路由系统
+
+5. 把渲染的页面转换成ejs模板：
+
+    /views
+        /admin 
+            login.ejs
+            register.ejs
+            index.ejs
+
+6. 如何访问静态资源呢？
+
+    /public
+        /javascripts
+            jquery-3.6.1.js
+            bootstrap.js 
+
+    http://localhost:3000/javascripts/jquery-3.6.1.js 
+
+    /public 
+        /images
+            iconfont.css -> 字体图标
+
+    http://localhost:3000/images/iconfont.css 
+
+7. 搭建具体的页面布局和样式？
+
+    /views
+        /admin 
+            login.ejs      ✔
+            register.ejs   ✔
+            index.ejs      ✔ (暂时先完成了导航布局和样式)
+
+8. 完成注册功能？
+
+    先设计注册表  
+        users集合  username、password 两个域
+
+        mongoose : Schema(规范表结构的)   model(具体操作表的)
+
+        MVC模式：M(数据层 /model )  C(控制层 /controller )  V(视图层 /routes 和 /views )
+
+        下载mongoose模块
+        
+        编写 /model/users.js（users集合数据库操作行为）
+
+        编写 /controller/users.js （完成 M和V的结合）
+
+        /.bid/www -> 启动数据库连接
+
+    完成注册功能
+
+        前端ajax -> 路由 -> 控制层 <- 数据层 <- mongodb
+
+
+9. 完成登录功能？
+
+        前端ajax -> 路由 -> 控制层 <- 数据层 <- mongodb
+
+10. 完成没有登录的拦截？
+
+    当登录的时候，给用户身份
+    当没登录的时候，不给用户身份
+
+    跟踪用户身份： 1. session + cookie      2. jwt          
+        session会自动生成一条cookie(这条cookie中存储的就是一个加密的字符串)，登录后会把cookie携带到后端，这样后端就可以知道用户的身份了。
+
+    需要下载第三方模块：专门处理 session + cookie  ->   express-session
+
+    在app.js中让express-session生效，设置第三方中间件。
+
+    在登录和没登录的时候，区别就是： req.session.username 有没有值
+
+    req.session.username 利用它完成 登录拦截 , 在app.js中进行拦截的中间件开发。
+
+    注意：当代码发生了修改，cookie就失效了，需要重新刷新浏览器才可以再次生效。
+
+11. 左侧菜单和右侧的内容区域的编写？
+
+    利用bootstrap完成布局和样式
+
+12. 编写 添加职位的页面 和 管理职位的页面？
+
+    /views  
+        /admin 
+            postadd.ejs ：添加职位的页面
+            postedit.ejs : 管理职位的页面
+
+    然后配置路由，能够访问到这两个页
+
+    http://localhost:3000/admin/postedit -> /views/admin/postedit.ejs 
+
+    编写布局和样式
+
+13. 添加职位的具体功能？
+
+    插入一个：面包屑的功能
+
+    完善添加职位页面的布局和样式
+
+    
+    职位的路由：
+        http://localhost/posts/add : 添加职位的功能   POST
+        http://localhost/posts/update : 更新职位的功能   POST
+        http://localhost/posts/remove : 删除职位的功能   POST
+    
+    
+    添加职位的数据库操作？
+
+        表posts 
+            postname
+            postcity
+            postedu
+            postmoney
+            postcompany
+            postinfo
+
+
+    添加职位的后端逻辑处理？
+
+        前端ajax -> 路由 -> 控制层 <- 数据层 <- mongodb 
+
+
+14.  管理职位的具体功能？      
+
+    完善管理职位页面的布局和样式
+
+    完成职位的表格渲染
+
+
+15.  完成职位更新的功能？
+
+    有一个更新的页面
+        localhost:3000/admin/postupdate   ->   /views/admin/postupdate.ejs 
+
+    如何让更新页面显示不同的更新数据呢？
+        改造URL为动态路由  ->  localhost:3000/admin/postupdate/[_id]
+
+    点击更新按钮跳转到指定的路由地址上
+
+    完成更新页面的布局
+
+    通过动态路由的id值，获取到数据库中指定的职位数据，然后对数据进行页面的回显操作。
+
+    前端ajax -> 更新职位功能路由 -> 控制层 <- 数据层 <- mongodb 
+
+16.  完成职位删除的功能？
+
+     给删除按钮添加事件，点击的时候，弹出提示层（bootstrap中自带的弹层组件）
+
+     获取指定的唯一标识ID，发送ajax的时候传递的数据
+
+     前端ajax -> 删除职位功能路由 -> 控制层 <- 数据层 <- mongodb 
+
+
+17. 完成上传图片的功能？
+
+    布局 ->  <input type="file">     ✔
+
+    前端 ->  
+        
+        1. ajax方式上传图片（jquery版本的）   ✔    
+    
+            FormData内置对象来完成的
+    
+        2. 图片的预览    ✔
+            
+            FileReader内置对象来完成的
+
+
+    后端 ->   1. 接收到上传的图片(需要借助于第三方模块：multer)    ✔
+
+             2. 把图片存储到一个指定的目录 /public/uploads 放到这里    ✔
+
+                    node内置的 fs模块 和 path模块
+
+             3. 图片的路径写入到数据库中，这样前端通过图片的路径来找到相应的图片  ✔
+
+                    改写 posts职位的 Schema 表规范
+
+                    http://localhost:3000/uploads/22f8ab4106a3bebead2edc5740d3fff7.png
+
+                    ->  /public/uploads/22f8ab4106a3bebead2edc5740d3fff7.png
+
+                    数据库里的 postimg 字段存储的就是  http://localhost:3000/uploads/22f8ab4106a3bebead2edc5740d3fff7.png
+
+18. 密码加密？
+
+    nodejs内置模块 : crypto
+
+
+19. 验证码的添加？
+
+    后端生成验证码 纯文本和图片，然后在提供验证码的URL接口
+        第三方模块：npm install --save svg-captcha
+        http://localhost:3000/users/yzm  -> /utils/bindCaptcha.js 
+
+    纯文本 -> 写入到session中 ( 让验证码针对指定的用户 )
+
+    图片 -> 响应给前端的img标签
+
+    提交ajax的时候，把验证码发送给后端，跟后端session中存储的验证码进行对比
