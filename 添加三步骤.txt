@@ -1,0 +1,4 @@
+添加三步骤
+git add .
+git conmit -m "第一次"
+git push origin  main
