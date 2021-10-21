@@ -1,0 +1,181 @@
+二。------------------------------------------------------------------------------------------------------------
+   CSS预处理器：就是用编写的思想去写CSS代码。有变量、语句、函数等等概念。
+  CSS预处理器，并不是原生的CSS代码，所以浏览器是不认识的。
+  把CSS预处理器的代码 -> 通过手段转成 -> 原生CSS，然后浏览器才能执行 
+  流行的CSS预处理器库有哪些呢？ Sass、less、stylus等等
+  Sass库：https://sass-lang.com
+  如何把.sass文件 转换成 .css 文件？
+      1. 官方提供的工具 ，比较繁琐，只能针对sass的转换，不能做其他的事情
+      2. 第三方的工具，gulp工具(二阶段)、webpack工具(三阶段)，不仅可以对sass进行处理，还可
+      3. vsCode的插件：easy sass 
+  sass文件分为两种格式：
+      xxx.sass : 语法类似于python语法
+      xxx.scss : 语法类似于CSS语法，这种好处，就是无缝对接CSS。
+          在scss文件中可以使用原生CSS和预处理混合去写的方式，推荐使用.scss去写代码
+
+
+ 一。-----------------------------------------------------------------------------------------------------
+ 1. bootstrap : 前端框架，简化网页的结构、样式、交互的。而且是一个响应式的框架，代码会自动适配PC端和移动端。
+ 2. bootstrap框架中的css部分就是用sass编写的
+3. bootstrap框架中的js部分就是用jquery编写的
+4. boot的使用
+   1. 去官网下载
+   2. 找到 bootstrap.css 和 bootstrap.js
+   3. 引入到html
+   <link href="bootstrap.css">
+   <script src="jquery.js"><\/script>
+   <script src="bootstrap.js"><\/script>
+ 5.https://getbootstrap.com/docs/5.1/layout/breakpoints/
+ 6.bootstrap把常见的css全部做成了class样式，通过class组合的方式实现样式编写
+7.响应式系统：
+    提供了一些响应式的断点
+    -sm   :   ≥576px    d-sm-none : 当分辨率 ≥576 这个样式才生效
+    -md   : ·  ≥768px
+    -lg   :   ≥992px
+    -xl   :   ≥1200px    d-xl-none : 当分辨率 ≥1200px 这个样式才生效
+    -xxl  :   ≥1400px    d-xxl-none : 当分辨率 ≥1400px 这个样式才生效
+8.栅格系统  :  把一行分成了12列
+                //row  col-* 这样的组合
+                //而且栅格系统在boot中是具备响应式的
+
+                //row  col-xl-3
+ 9.bootstrap中的交互效果：都是通过 自定义属性来完成的  data-bs-xxxx
+
+
+三。。。--------------------------------------------------------------------------------------------
+        git工具：
+            1. 代码的版本管理
+            2. 多人协作，解决冲突后，再进行代码的修改。
+ 
+        github是一个网站：
+            1. 可以充当git代码的管理仓库
+            2. 放置开源库或开源框架的源代码 jquery源代码就在github上
+            3. 博客
+            4. 电子书
+
+        版本管理工具：
+            1. 集成式 ： CVS、SVN 
+            2. 分布式 :  git  (90%以上的公司)
+
+        git工具的使用：
+            1. 去官网下载git软件 https://git-scm.com/
+
+            2. 通过git代码的形式学习git操作
+
+            3. 在使用git命令的时候，先要进行配置和初始化
+
+                初始化：在指定的目录下 -> git init  ->  .git文件夹
+
+                配置：(必须在使用git工具前进行设置)
+
+                    git config --list : 查看配置信息 
+                    git config --global user.name "xiaoming"
+                    git config --global user.email "aaa@qq.com" //有空格的时候看好加空格
+
+
+                    git config --global --unset user.name : 删除user.name这个配置
+
+            4. 三个分区：
+                1. 工作区 : 就是你编写文件的地方
+                2. 暂存区 : .git    
+                    // 缓冲地带，防止工作区直接跟版本区通信
+                3. 版本区 : .git 
+                    // 暂存区和版本区管理的是代码的状态( 创建、修改、删除都是状态 )。
+
+                版本区中存放着项目的代码版本，这些版本在一个叫做master的分支上面。
+                分支是通过指针进行管理的，针对就是一个HEAD标识，HEAD标识在哪个版本上就表示当前版本区是哪一个状态。
+
+
+            5. git status : 查看当前三个区之间的状态
+
+                1. 如果打印的信息：都是白色，说明三个区状态相同
+
+                2. 如果打印的信息：有红色，说明：工作区和暂存区状态不同
+
+                3. 如果打印的信息：有绿色，说明：暂存区跟版本区状态不同
+
+            6. git add 
+                把工作区的状态同步到暂存区
+                git add a.txt -> 把a.txt的状态同步到暂存区
+                git add .  ->  把工作区中的所有状态不同的文件同步到暂存区
+
+            7. git commit 
+                把暂存区的状态同步到版本区
+                git commit -m "注释"   : 生成了一个版本
+
+            8. git log  
+                查看分支上的所有版本信息的
+
+                commit 847b0e720200748bc0638c99c9830fc05565a29d -> 版本的唯一标识，属于commitId，通过commitId可以找到当前对应的版本
+
+                当显示不完整的时候，可以通过回车进行后面代码的查看，输入q可以退出查看。
+
+                --pretty=oneline : 打印简化的版本信息
+
+            9. 删除文件：
+
+                先在工作区中删除文件，然后再add 和 commit 
+
+                git rm xxx : 删除xxx文件
+                    1. 把工作区的xxx删除
+                    2. 把删除xxx的状态同步到暂存区
+
+
+            10. 对比，查看三个区状态具体的差异点：
+
+                    git diff : 工作区和暂存区的具体对比
+                    git diff --cached : 暂存区和版本区的具体对比
+                    git diff master : 工作区和版本区中的master分支进行对比
+
+            11. 回退版本（可以回到过去）
+
+                git reset --hard HEAD   :  工作区和暂存区会跟当前head指针对应的版本相同
+                git reset --hard HEAD^  : 回到head指针对应的前一个版本
+                git reset --hard HEAD^^  : 回到head指针对应的前两个版本
+                git reset --hard HEAD~50  : 回到head指针对应的前50个版本
+                git reset --hard commitId : 回到指定commtid所对应的版本
+
+                git reflog : 查看之前做过的各种操作行为
+
+                git reset HEAD : 分支回退到暂存区
+
+
+12.数据库：存储应用或项目的数据的，可以让数据进行持久化存储。
+
+    分为两大类：
+        1. 关系型数据库：mysql、oracle、sqlserver ... 
+        2. 非关系型数据库：mongodb、redis ... 
+
+13.
+npm init -y    下载node     cnpm i
+cnpm i -D mongodb
+
+
+14. Talend API Tester -> 发起请求的插件 -> 可以模拟各种请求的方式。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

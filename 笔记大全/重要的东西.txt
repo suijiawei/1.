@@ -1,0 +1,100 @@
+    
+   1.promise的诞生就是改善这种，单异步操作或多异步操作体验的。
+ promise中有三种状态：
+    1. pending -> 等待状态
+    2. fulfilled -> 完成状态（成功状态）
+    3. rejected -> 未完成状态（失败状态）
+pending -> 初始状态，状态是可以改变，但是改变是有限制的。状态改变后就不会再变了。
+    1.  等待 -> 完成
+    2.  等待 -> 未完成
+
+等待 ->  resolve() : 把等待变成完成  -> 完成   ->  then(function(){}) 回调函数会触发
+等待 ->  reject() : 把等待变成未完成  -> 未完成 -> catch(function(){}) 回调函数会触发
+例子 /*  let promise = new Promise(function(resolve, reject){
+      // 这里是当new Promise的时候就会触发
+      
+      setTimeout(function(){
+          resolve();
+          //reject();
+      },1000);
+  });  */
+
+二。事件委托=======================================================
+        //！！！！！！！！！！！！！！！！！！！！！事件委托：是必须要掌握的。
+            //原理：利用冒泡来实现的
+            //优点：    
+                //1. 节省性能 
+                //2.            ！！！！！！！！！！！！给动态节点添加事件行为========3.3
+ 在委托操作中,当前的this是会指向委托元素的,并不会指向你当前操作的元素
+ 事件源： ev.target 跟 this 有点像，但是区别是 ev.target 指定当前操作的元素
+ 在委托操作的时候:要对当前操作的元素进行筛选
+
+var ul = document.querySelector('ul');
+         ul.onclick = function(ev){
+            //this.style.background = 'red';
+            if( ev.target.nodeName.toLowerCase() === 'li' ){     //nodeName 转化为指定的元素  
+                ev.target.style.background = 'red';
+            }
+        }; 
+        setInterval(function(){
+            var newLi = document.createElement('li');
+            newLi.innerHTML = 'aaaaaaaa';
+            ul.append(newLi);
+        }, 1000); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
