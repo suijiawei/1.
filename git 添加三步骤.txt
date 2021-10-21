@@ -8,6 +8,5 @@ git commit -m "第一次"
    2. git强制覆盖：git fetch --all
                             git reset --hard origin/master
                             git pull
-账号：3098511307@qq.com
-密码：suijiawei5201314
+
   
