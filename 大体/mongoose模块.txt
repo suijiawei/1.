@@ -1,0 +1,109 @@
+//moogoose : 也属于第三方模块，比mongodb第三方要好用，功能更强大。
+
+//Node.js中推荐用mongoose去操作mongodb数据库。
+
+//Mongoose库简而言之就是对node环境中MongoDB数据库操作的封装。一种对象模型工具，可以将数据库中的数据
+转换为JavaScript对象供我们使用。对mongodb操作变的简单方便。
+
+//mongoose的语法：是基于promise设计的、
+
+//    使用mongoose工具
+// 	1.  安装：mongoose   ✔
+// 	2.  连接数据库
+// 		mongoose.connect('mongodb://127.0.0.1:27017/music', (err)=>{});   ✔
+// 	3.  Schema
+// 		schema是mongoose里会用到的一种数据模式，可以理解为表结构的定义；每个schema会映射
+到mongodb中的一个collection，它不具备操作数据库的能力。
+// 	4.  model
+// 		model是由schema生成的模型，可以对数据库进行操作。
+
+let mongoose = require('mongoose');
+
+// 直接连到music数据库上
+  mongoose.connect('mongodb://localhost:27017/music', function(err){
+
+    if(err){
+        console.log('连接失败');
+    }
+    else{
+        console.log('连接成功');
+
+
+        //创建一个Schema对象：规范表结构的。
+
+        let musicListSchema = new mongoose.Schema({
+            musicsinger: String,
+            musicname: String,
+            age: Number
+        });
+
+        //创建一个model对象，对表进行增删改查。
+
+        // 第一个参数：model对象的名字
+        // 第二个参数：对应的Schema对象
+        // 第三个参数：集合指定的名字
+
+        //集合名：被定义成了 musiclists ，默认情况下会采用model对象名字的复数形式作为对应集合的名字
+        //musiclist -> musiclists 
+        //musiclists -> musiclists
+
+        let MusicListModel = mongoose.model('musiclist', musicListSchema,'musiclist');
+
+增： save()   insertMany()
+删数据  deleteOne()删除一条   deleteMany()删除多条
+改数据   updateOne()更新一条    updateMany()更新多条
+find()查询多条  findOne()查询单条
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

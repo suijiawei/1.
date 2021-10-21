@@ -1,0 +1,75 @@
+promise : 非常重要，解决JS异步编程体验的。属于ES6提供的功能。
+
+promise中有三种状态：
+    1. pending -> 等待状态
+    2. fulfilled -> 完成状态（成功状态）
+    3. rejected -> 未完成状态（失败状态）
+ pending -> 初始状态，状态是可以改变，但是改变是有限制的。状态改变后就不会再变了。
+  eg. let promise = new Promise(function(resolve, reject){
+            // 这里是当new Promise的时候就会触发
+            setTimeout(function(){
+                resolve();
+                //reject();
+            },1000);
+
+        });  
+
+
+let p = new Promise((resolve, reject)=>{
+            setTimeout(()=>{
+                resolve(123);
+            },1000);
+        });
+
+        let p2 = new Promise((resolve, reject)=>{
+            setTimeout(()=>{
+                resolve(789);
+            },1000);
+        });
+
+        p
+        .then((n)=>{
+            console.log(n);
+            return p2;  // 一旦return的是promise对象，那么内部就不会创建新的promise，而是采用return的这个promise调用下一个then
+        })
+        .then((n)=>{
+            console.log(n);  // 789
+        })
+        .then(()=>{    // 内部创建的新的promsie
+            console.log(3);
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

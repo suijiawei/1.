@@ -1,0 +1,81 @@
+   bootstrap : 前端框架，简化网页的结构、样式、交互的。而且是一个响应式的框架，代码会自动适配PC端和移动端。
+        bootstrap框架中的css部分就是用sass编写的
+        bootstrap框架中的js部分就是用jquery编写的
+ boot的使用
+            // 1. 去官网下载
+            // 2. 找到 bootstrap.css 和 bootstrap.js
+            // 3. 引入到html
+            // <link href="bootstrap.css">
+            // <script src="jquery.js"><\/script>
+            // <script src="bootstrap.js"><\/script>
+
+响应式系统：
+    提供了一些响应式的断点
+    -sm   :   ≥576px    d-sm-none : 当分辨率 ≥576 这个样式才生效
+    -md   :   ≥768px
+    -lg   :   ≥992px
+    -xl   :   ≥1200px    d-xl-none : 当分辨率 ≥1200px 这个样式才生效
+    -xxl  :   ≥1400px    d-xxl-none : 当分辨率 ≥1400px 这个样式才生效
+bootstrap把常见的css全部做成了class样式，通过class组合的方式实现样式编写
+        //<div class="d-inline p-2 bg-primary text-white">d-inline</div>
+栅格系统  :  把一行分成了12列
+     //row  col-* 这样的组合
+     //而且栅格系统在boot中是具备响应式的
+     //row  col-xl-3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

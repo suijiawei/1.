@@ -1,0 +1,85 @@
+mongodb使用：
+
+    1. 安装mongodb数据库
+    2. 进入C:\Program Files\MongoDB\Server\3.6\bin  bin目录执行mongod命令
+        可以把路径写入到全局环境变量中，这样就可以在任意的路径下启动mongod数据库
+    3. mongod --dbpath=文件夹  -> 启动mongod数据库
+    4. 如何操作数据库：
+        1. 写代码：
+        2. 可视化：
+
+        1.写代码的方式：
+            再开启一个cmd创建，输入 mongo 这样就进入了写代码的环境
+
+            常用命名：
+                use xxx : 切换数据库、如果没有xxx数据库，就创建xxx在切换到xxx数据
+
+                db.stats() : 查看数据库的状态
+
+                show dbs : 查看有多个数据库
+
+                db.createCollection('xxxx') :  创建 xxxx  集合 (表)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

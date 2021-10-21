@@ -1,0 +1,200 @@
+jQuery : 是一个库。库就是别人做好的现成的文件，可以直接拿过来使用。
+
+jquery作用：简化原生JS的操作的。
+    1. 原生JS写起来有点复杂，
+        JS： document.querySelector('#elem');
+        JQ： $('#elem')
+    2. 原生JS的兼容性需要考虑
+        JQ ：把兼容性都处理好了，不用考虑代码的兼容性问题
+    3. 统一了一些功能的写法
+        JS :  elem.style.background  、 getComputedStyle(elem).width
+        JQ :  css('background')、css('width')
+    4. JQ提供了很多现成的功能
+        JS : ajax()、move()、JSONP()
+        JQ : $.ajax()、$().animate()、$.getJSON()
+jquery是一门新语言吗？不是，他是JS的封装，jquery.js -> 里面写的就是原生JS，只不过JQ把
+原生JS给改造了，改成了一种新的写法而已，所以说JQ可以看成是原生JS的升级。
+
+
+ // 兄弟节点
+        //$('.nowLi').next().css('background','red');
+        //$('.nowLi').prev().css('background','blue');
+        //$('.nowLi').nextAll().css('background','red');
+        //$('.nowLi').prevAll().css('background','blue');
+
+        // 选择当前元素的所有兄弟节点，就是不包含自己
+        //$('.nowLi').siblings().css('background','blue');
+
+        //节点的获取，一般都代码筛选功能
+        //$('.nowLi').nextAll('li').css('background','red');
+        //$('.nowLi').next('div').css('background','red');
+
+        //子节点
+        /* $('ul').children()
+        $('ul').last()
+        $('ul').first()
+        $('ul').eq() */
+
+        //$('ul').children('.nowLi').css('background','red');
+        //$('ul').children().css('border','1px red solid');
+
+        //后代节点
+        //$('ul').find('li').css('border','1px red solid');
+        //$('ul').find('*').css('border','1px red solid');
+        // 找ul下的所有子节点是li的
+        //$('ul').find('>li').css('border','1px red solid');
+
+        //父节点
+        //$('div').parent().css('border','1px red solid');
+        
+        //祖先节点
+        //$('div').parents().css('border','1px red solid');
+        //$('div').parents('ul').css('border','1px red solid');
+
+        //找最近的满足条件的祖先节点(包括自己)，从当前元素一层层向外找
+        // $('div').closest('div').css('border','1px red solid');
+        $('span') : 获取元素或元素集合
+        $('<span>') : 创建元素
+        $(function(){}) : DOM加载
+        $().length : 集合长度
+        $().css() : 给元素添加样式
+        $().eq()  : 得到集合中的第几项
+        $().html()  : 获取元素的内容
+        $().attr()  : 获取元素的属性
+        $().click() : 点击操作
+        $().mouseover() : 移入操作
+        $().mouseout() : 移出操作
+        $().val() : 表单的value操作
+        $().addClass():   添加class 
+        $().removeClass(): 删除class
+        $().toggleClass(): 切换class
+        $().show():   显示元素 
+        $().hide(): 隐藏元素
+        $().toggle(): 切换显示隐藏(带动画)
+        $().first() : 集合的第一个元素
+        $().last() : 集合的最后一个元素
+        $().slice() : 集合的部分元素 
+        $().next() : 找下一个节点
+        $().prev() : 找上一个节点
+        $().nextAll() : 找下面所有的节点
+        $().prevAll() : 找上面所有的节点
+        $().siblings() : 找所有的兄弟节点(
+        $().children() : 得到元素的所有子
+        $().find() : 得到元素的指定的后代
+        $().parent() : 获取父节点
+        $().parents() : 获取祖先节点
+        $().closest() : 获取最近的满足条件
+        $().append() / appendTo() : 添加到
+        $().prepend() / prependTo() : 添加
+        $().after() / insertAfter() : 添加
+        $().before() / insertBefore() : 添
+        $().remove() : 删除节点
+        $().detach() : 删除节点(保留行为)
+        $().clone() : 克隆节点
+        $().index() : 元素集合对应的索引
+        $().wrap() : 外部包装
+        $().wrapAll() : 整体包装
+        $().wrapInner() : 内部包装
+        $().unwrap() : 删除包装
+        $().each() : 遍历集合
+        $().get()  : 把JQ转JS
+        $().width() / height() : 尺寸
+        $().innerWidth() / innerHeight() :
+        $().outerWidth() / outerHeight() :
+        $().scrollTop() / scrollLeft() : 
+        $().offset() : 元素到页面距离(不看
+        $().position() : 元素到页面距离(看
+        $().on() : 添加事件
+        $().off() : 取消事件
+        $.type() : 判断类型
+
+
+        
+        $.isFunction() : 判断是否是函数
+        $.extend() : 拷贝对象
+        $.ajax() : ajax操作
+        $.getJSON() : jsonp操作
+        $().fadeIn() : 淡入淡出
+        $().slideUp() : 收缩展开
+        $().animate() : 自定义动画
+        $().stop() : 停止动画
+        $().finish() : 停止动画
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
